@@ -33,14 +33,11 @@ def clean_education(x):
 
 @st.cache
 def load_data():
-    # df = pd.read_csv("https://drive.google.com/file/d/1q-uyk_4YzfgRYgzTsMvS0uEHwHyMQ5_q")
-    # url='https://drive.google.com/file/d/1q-uyk_4YzfgRYgzTsMvS0uEHwHyMQ5_q/view?usp=sharing'
-    # path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
     df = pd.read_csv("survey_results_public.csv")
     df = df[["Country", "EdLevel", "YearsCodePro", "Employment", "ConvertedCompYearly"]]
     df = df[df["ConvertedCompYearly"].notnull()]
     df = df.dropna()
-    df = df[df["Employment"] == "Employed full-time"]
+    df = df[df["Employment"] == "Employed, full-time"]
     df = df.drop("Employment", axis=1)
 
     country_map = shorten_categories(df.Country.value_counts(), 400)
@@ -61,7 +58,7 @@ def show_explore_page():
 
     st.write(
         """
-    ### Stack Overflow Developer Survey 2020
+    ### Stack Overflow Developer Survey 2022
     """
     )
 
