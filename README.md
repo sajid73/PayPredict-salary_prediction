@@ -1,5 +1,3 @@
-// ...existing code...
-
 # PayPredict — Software Developer Salary Prediction
 
 Small Streamlit app that predicts software developer salaries using Stack Overflow Developer Survey data and a trained regression model.
